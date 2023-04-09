@@ -8,22 +8,18 @@ let year = String(date.getFullYear());
 let hours = String(date.getHours());
 let minutes =String( date.getMinutes());
 
-console.log(days[day], months[month])
 let options = { weekday: 'long'};
 let daysRu=new Intl.DateTimeFormat('ru-RU', options).format(date);
 console.log(daysRu)
 if (userName) {
     alert(
         "Добрый день, " +
-            localStorage.getItem("userName") +
-            "! Давно не виделись. В последний раз вы были у нас " +
-            localStorage.getItem("lastDate")
+            localStorage.getItem("userName") + "! Давно не виделись. В последний раз вы были у нас " + localStorage.getItem("lastDate")
     );
 }
 // если нет, то просим ввести своё имя
 else {
     userName = prompt("Добро пожаловать! Назовите, пожалуйста, ваше имя");
-    console.log(userName);
     if (userName) {
         localStorage.setItem("userName", userName);
         lastDate = `${daysRu}-${day}-${months[month]}-${year} ${hours}:${minutes}`;
